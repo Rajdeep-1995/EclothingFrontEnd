@@ -1,40 +1,47 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Login from "./auth/Login";
-import Register from "./auth/Register";
-import RegisterComplete from "./auth/RegisterComplete";
-import Header from "./components/nav/Header";
-import Home from "./pages/Home";
 import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
-import ForgotPassword from "./auth/ForgotPassword";
 import { currentUser } from "./functions/auth";
-import History from "./pages/user/History";
-import UserRoute from "./components/routes/UserRoute";
-import AdminRoute from "./components/routes/AdminRoute";
-import Password from "./pages/user/Password";
-import Wishlist from "./pages/user/Wishlist";
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import CategoryCreate from "./pages/admin/category/CategoryCreate";
-import CategoryUpdate from "./pages/admin/category/CategoryUpdate";
-import SubCreate from "./pages/admin/subCat/SubCreate";
-import SubUpdate from "./pages/admin/subCat/SubUpdate";
-import ProductCreate from "./pages/admin/product/ProductCreate";
-import AllProducts from "./pages/admin/product/AllProducts";
-import ProductUpdate from "./pages/admin/product/ProductUpdate";
-import Product from "./pages/Product";
-import CategoryHome from "./pages/category/CategoryHome";
-import SubHome from "./pages/sub/SubHome";
-import Shop from "./pages/Shop";
-import Cart from "./pages/Cart";
-import SideDrawer from "./components/drawer/SideDrawer";
-import CheckOut from "./pages/CheckOut";
-import About from "./pages/about/About";
-import Contact from "./pages/contact/Contact";
-import Faq from "./pages/faq/Faq";
-import Footer from "./components/nav/Footer";
+import "react-toastify/dist/ReactToastify.css";
+
+const Login = lazy(() => import("./auth/Login"));
+const Register = lazy(() => import("./auth/Register"));
+const RegisterComplete = lazy(() => import("./auth/RegisterComplete"));
+const Header = lazy(() => import("./components/nav/Header"));
+const Home = lazy(() => import("./pages/Home"));
+
+const ForgotPassword = lazy(() => import("./auth/ForgotPassword"));
+
+const History = lazy(() => import("./pages/user/History"));
+const UserRoute = lazy(() => import("./components/routes/UserRoute"));
+const AdminRoute = lazy(() => import("./components/routes/AdminRoute"));
+const Password = lazy(() => import("./pages/user/Password"));
+const Wishlist = lazy(() => import("./pages/user/Wishlist"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const CategoryCreate = lazy(() =>
+  import("./pages/admin/category/CategoryCreate")
+);
+const CategoryUpdate = lazy(() =>
+  import("./pages/admin/category/CategoryUpdate")
+);
+const SubCreate = lazy(() => import("./pages/admin/subCat/SubCreate"));
+const SubUpdate = lazy(() => import("./pages/admin/subCat/SubUpdate"));
+const ProductCreate = lazy(() => import("./pages/admin/product/ProductCreate"));
+const AllProducts = lazy(() => import("./pages/admin/product/AllProducts"));
+const ProductUpdate = lazy(() => import("./pages/admin/product/ProductUpdate"));
+const Product = lazy(() => import("./pages/Product"));
+const CategoryHome = lazy(() => import("./pages/category/CategoryHome"));
+const SubHome = lazy(() => import("./pages/sub/SubHome"));
+const Shop = lazy(() => import("./pages/Shop"));
+const Cart = lazy(() => import("./pages/Cart"));
+const SideDrawer = lazy(() => import("./components/drawer/SideDrawer"));
+const CheckOut = lazy(() => import("./pages/CheckOut"));
+const About = lazy(() => import("./pages/about/About"));
+const Contact = lazy(() => import("./pages/contact/Contact"));
+const Faq = lazy(() => import("./pages/faq/Faq"));
+const Footer = lazy(() => import("./components/nav/Footer"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -64,7 +71,11 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Suspense
+      fallback={
+        <h4 className="text-center pt-5 mt-5 text-danger">Loading...</h4>
+      }
+    >
       <Header />
       <SideDrawer />
       <ToastContainer />
@@ -103,8 +114,7 @@ const App = () => {
         <Route exact path="/contact-us" component={Contact} />
         <Route exact path="/faq" component={Faq} />
       </Switch>
-      <Footer />
-    </>
+    </Suspense>
   );
 };
 
