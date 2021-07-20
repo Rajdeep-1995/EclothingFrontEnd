@@ -1,3 +1,8 @@
 .maskImage {
   mask-image: linear-gradient(to top, transparent 2%, black 85%);
 }
+
+.slide img {
+  height: 650px;
+  object-fit: cover;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./index.css";
 import {
   CloseOutlined,
   HeartOutlined,
@@ -69,6 +70,9 @@ const SingleProduct = ({ product, star, handleRating }) => {
   return (
     <>
       <div className="col-md-7">
+        <h1 className="p-2 " style={{ backgroundColor: "#F8AFA6" }}>
+          {title}
+        </h1>
         {images && images.length ? (
           <Carousel autoPlay infiniteLoop emulateTouch showArrows>
             {images.map((photo) => (
@@ -78,11 +82,11 @@ const SingleProduct = ({ product, star, handleRating }) => {
         ) : (
           <img
             className="mb-4"
-            style={{ height: "350px", width: "100%", objectFit: "cover" }}
+            style={{ height: "350px", width: "100%" }}
             src={defaultImage}
           />
         )}
-        <Tabs type="card">
+        <Tabs type="card" className="mb-2">
           <TabPane tab="Description" key="1">
             {description ? description : "This product has no description"}
           </TabPane>
@@ -91,10 +95,7 @@ const SingleProduct = ({ product, star, handleRating }) => {
           </TabPane>
         </Tabs>
       </div>
-      <div className="col-md-5">
-        <h1 className="p-2" style={{ backgroundColor: "#F8AFA6" }}>
-          {title}
-        </h1>
+      <div className="col-md-5 mt-5">
         {product && product.ratings && product.ratings.length > 0 ? (
           showAvarage(product)
         ) : (
