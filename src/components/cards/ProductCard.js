@@ -58,15 +58,13 @@ const ProductCard = ({ product }) => {
         <div className="text-center pt-2">No Rating Yet</div>
       )}
       <Card
-        // style={{ border: "1px solid grey" }}
         className="m-2"
         cover={
           <img
             src={images && images.length ? images[0].url : defaultImage}
             style={{
-              height: "150px",
+              height: "250px",
               width: "100%",
-              objectFit: "fill",
             }}
           />
         }
