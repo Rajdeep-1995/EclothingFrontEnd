@@ -6,6 +6,7 @@ import Culture from "../../components/Images/AboutUs/culture.jpg";
 import Benifits from "../../components/Images/AboutUs/benefit.jpg";
 
 const About = () => {
+  document.title = "about us";
   return (
     <div>
       <div className="container pt-4 mt-3 pl-1">

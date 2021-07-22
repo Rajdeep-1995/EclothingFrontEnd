@@ -45,6 +45,8 @@ const Cart = ({ history }) => {
     </div>
   );
 
+  document.title = `your cart (${cart.length})`;
+
   return (
     <div className="container-fluid pt-3">
       <div className="row">

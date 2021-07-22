@@ -346,6 +346,8 @@ const Shop = ({ match }) => {
     getProducts({ gender: e.target.value });
   };
 
+  document.title="shop"
+
   return (
     <div>
       <div className="container-fluid">

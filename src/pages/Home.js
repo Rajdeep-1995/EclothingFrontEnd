@@ -11,6 +11,7 @@ import ShotsAndSkrits from "../components/home/ShotsAndSkirts";
 import MatchingSet from "../components/home/MatchingSet";
 
 const Home = () => {
+  document.title = "welcome to famazon.com";
   return (
     <>
       <Slider />

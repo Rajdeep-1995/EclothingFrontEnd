@@ -46,7 +46,7 @@ const Product = ({ match }) => {
         loadProduct();
       });
   };
-
+  document.title = product.title;
   return (
     <div>
       <div className="container-fluid">
