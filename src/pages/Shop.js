@@ -83,6 +83,9 @@ const Shop = ({ match }) => {
   useEffect(() => {
     const delayed = setTimeout(() => {
       getProducts({ query: queryText });
+      if (!text) {
+        getAllProducts();
+      }
     }, 300);
 
     return () => clearTimeout(delayed);
@@ -346,7 +349,7 @@ const Shop = ({ match }) => {
     getProducts({ gender: e.target.value });
   };
 
-  document.title="shop"
+  document.title = "shop";
 
   return (
     <div>

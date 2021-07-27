@@ -5,6 +5,7 @@ import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
 import { currentUser } from "./functions/auth";
 import "react-toastify/dist/ReactToastify.css";
+import Payment from "./pages/Payment";
 
 const Login = lazy(() => import("./auth/Login"));
 const Register = lazy(() => import("./auth/Register"));
@@ -41,6 +42,7 @@ const CheckOut = lazy(() => import("./pages/CheckOut"));
 const About = lazy(() => import("./pages/about/About"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
 const Faq = lazy(() => import("./pages/faq/Faq"));
+const CreateCoupn = lazy(() => import("./pages/admin/coupon/CreateCoupon"));
 const Footer = lazy(() => import("./components/nav/Footer"));
 
 const App = () => {
@@ -104,7 +106,9 @@ const App = () => {
           path="/admin/product/:slug"
           component={ProductUpdate}
         />
+        <AdminRoute exact path="/admin/coupon" component={CreateCoupn} />
         <UserRoute exact path="/checkout" component={CheckOut} />
+        <UserRoute exact path="/payment" component={Payment} />
         <Route exact path="/product/:slug" component={Product} />
         <Route exact path="/category/:slug" component={CategoryHome} />
         <Route exact path="/sub/:slug" component={SubHome} />

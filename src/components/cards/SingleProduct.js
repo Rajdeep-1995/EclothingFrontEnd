@@ -105,10 +105,14 @@ const SingleProduct = ({ product, star, handleRating }) => {
           actions={[
             <>
               <Tooltip title={toolTip}>
-                <span onClick={handleCart}>
-                  <ShoppingCartOutlined className="text-warning" />
-                  <p>Add to cart</p>
-                </span>
+                <a disabled={product.quantity < 1} onClick={handleCart}>
+                  <ShoppingCartOutlined className="text-warning" />{" "}
+                  {product.quantity < 1 ? (
+                    <p>Out of stock</p>
+                  ) : (
+                    <p>Add to cart</p>
+                  )}
+                </a>
               </Tooltip>
             </>,
             <Link to="/">
