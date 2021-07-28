@@ -10,9 +10,11 @@ import {
 } from "@ant-design/icons";
 import { Card } from "antd";
 import { createOrder, emptyCart } from "../functions/user";
+import { useHistory } from "react-router-dom";
 
 const StripeCheckout = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { user, coupon } = useSelector((state) => ({ ...state }));
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
@@ -87,6 +89,10 @@ const StripeCheckout = () => {
       setProcessing(false);
       setError("");
       setSucceeded(true);
+
+      setTimeout(() => {
+        history.push("/user/history");
+      }, 1000);
     }
   };
 
