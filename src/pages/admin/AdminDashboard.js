@@ -1,6 +1,7 @@
 import React from "react";
 
 import AdminNav from "../../components/nav/AdminNav";
+import AdminOrderHistory from "./AdminOrderHistory";
 
 const AdminDashboard = () => {
   return (
@@ -11,7 +12,9 @@ const AdminDashboard = () => {
             <AdminNav />
           </div>
 
-          <div className="col">AdminDashboard</div>
+          <div className="col">
+            <AdminOrderHistory />
+          </div>
         </div>
       </div>
     </div>

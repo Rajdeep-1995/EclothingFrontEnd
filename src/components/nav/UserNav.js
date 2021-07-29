@@ -1,24 +1,28 @@
-import React from 'react'
-import {Link} from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
 const UserNav = () => {
-    return (
-        <nav>
-    <ul className="nav flex-column">
+  return (
+    <nav>
+      <ul className="nav flex-column">
         <li className="nav-item">
-        <Link to="/user/history" className="nav-link">History</Link>
+          <Link to="/user/history" className="nav-link">
+            History
+          </Link>
         </li>
 
         <li className="nav-item">
-        <Link to="/user/password" className="nav-link">Password</Link>
+          <Link to="/user/password" className="nav-link">
+            Password
+          </Link>
         </li>
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
         <Link to="/user/wishlist" className="nav-link">Wishlist</Link>
-        </li>
-    </ul>
-        </nav>
-    )
-}
+        </li> */}
+      </ul>
+    </nav>
+  );
+};
 
-export default UserNav
+export default UserNav;

@@ -115,10 +115,7 @@ const SingleProduct = ({ product, star, handleRating }) => {
                 </a>
               </Tooltip>
             </>,
-            <Link to="/">
-              <HeartOutlined className="text-info" />
-              <br /> Add to wishlist
-            </Link>,
+
             <RatingModal>
               <StarRatings
                 name={_id}

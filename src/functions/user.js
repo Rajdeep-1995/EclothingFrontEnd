@@ -68,3 +68,21 @@ export const getOrders = async (authToken) =>
       authToken,
     },
   });
+
+export const getOrdersbyAdmin = async (authToken) =>
+  await axios.get(`${process.env.REACT_APP_API}/admin/order`, {
+    headers: {
+      authToken,
+    },
+  });
+
+export const handleOrder = async (authToken, selectedStatus, orderId) =>
+  await axios.post(
+    `${process.env.REACT_APP_API}/admin/order-status`,
+    { selectedStatus, orderId },
+    {
+      headers: {
+        authToken,
+      },
+    }
+  );
